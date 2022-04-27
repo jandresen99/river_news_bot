@@ -1,12 +1,11 @@
 import sys
-
 import web_scrapper
 import send_message
 
 def update_news(token, chat_id):
-    news = web_scrapper.get_news()
+    news = web_scrapper.get_newsV1()
     for item in news:
-        message = "[TEST]\n" + item
+        message = item + "\n\n" + news[item]
         send_message.send_simple_message_to_group(message, chat_id, token)
 
 if __name__ == '__main__':
